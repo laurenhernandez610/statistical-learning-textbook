@@ -5,7 +5,30 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{afterpage}
 \usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[english]{babel}
+\setlength{\columnsep}{1cm}
 
+% ---------Organizing the Section Indentations ----------
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+	{-3.5ex \@plus -1ex \@minus -.2ex}%
+	{2.3ex \@plus.2ex}%
+	{\normalfont\Large\bfseries\raggedright}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\large\bfseries\raggedright}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\normalsize\bfseries\raggedright}}
+\makeatother
+
+% ---- Putting Page Numbers in Place -----------------------
 \newcounter{nopage}
 \newenvironment{nopage}
 {\clearpage\stepcounter{nopage}%
@@ -13,13 +36,12 @@
 	\thispagestyle{empty}}
 {\clearpage\addtocounter{page}{-1}}
 
-
+%----- Defining a color Blue that I like ----------
 \definecolor{astral}{RGB}{46,116,181}
 \subsectionfont{\color{astral}}
 \sectionfont{\color{astral}}
 
-
-
+% ---- Setting Cover Photo -----------------
 \usepackage{eso-pic}
 \newcommand\BackgroundPic{%
 	\put(0,0){%
@@ -31,7 +53,7 @@
 			\vfill
 }}}
 
-%opening
+% ---- Title Formtion ---------------
 \date{}
 \centering 
 \title{%
@@ -41,43 +63,80 @@
 	with Illustrating Labs}}
 
 %\author{    %
-%	LH$^{1}$, LM$^{2}$, AA$^{3}$\\
+%	LH$^{1}$, LM$^{2}$, AA$^{3}$\\    % Optional Author Insert
 %}
 
+
+
+%------- Starting the textbook------------------
 \begin{document}
-	\AddToShipoutPicture*{\BackgroundPic}
-	
-	\pagenumbering{roman}
+	\AddToShipoutPicture*{\BackgroundPic} % Cover photo
+	\pagenumbering{roman}  % Page number type before text starts (i, ii, iii, iv) 
 	\maketitle
 	
 	\begin{nopage}
 		\vspace*{\fill}
 		\centering
-	\color{astral}	\Large \textit{``Big data isn't about bits, \\
+	\color{astral}	\Large \textit{``Big data isn't about bits, \\     % Page with cheesy quote
 			it's about talent.''} \\
 		\vspace{1mm}
 		-- Douglas Merill
 		\vspace*{\fill}
 	\end{nopage}	
-	
-	
-	
-	
-	
-	\addcontentsline{toc}{chapter}{Foreword}
 
-
-
+	\addcontentsline{toc}{chapter}{Foreword}   % Optional Foreward Statement
 	
-	\addcontentsline{toc}{chapter}{Acknowledgement}
+	\addcontentsline{toc}{chapter}{Acknowledgement}  % Optional Acknowledgement statement
 	%some agreement
 	
-\color{astral}	\tableofcontents
+\color{astral}\tableofcontents  % Setting table of contents
+\mainmatter
 	
-	\mainmatter
+% ----------INTRODUCTION-------------------------------------
+	\chapter{Introduction}
 	
-	\color{astral}\chapter*{Introduction}
+	\vspace{50mm}
 	
-	\color{black}This is the introduction to statistical learning. tyoeroei
+	\color{black} \paragraph{}   \textbf{General Outline for the Intro:} \\ 1. The growth of information. \\  2. The rise of data and AI;  "Data is the new oil" - Clive Humby, and "AI is the new electricity" - Andrew Ng  \\ 3. How statistical learning fits into the picture; what it does; and why it's important. \\ 4. What the book covers, and what the book can offer. \\ 5. Who the book is "for". \\6. How to use the book.
+
+
+% ------------CHAPTER 1 ----------------------------------
+
+	\color{astral}\chapter{Statistical Learning}
+
+	 \section[The Basics of Statistical Learning ]{The Basics of Statistical Learning} % Example of a section 
+
+	
+\color{black} 	\paragraph{} Generally speaking, statistical learning is a construct that attempts to predict an outcome, or determine a relationship. Now, in order to make a prediction, or determine an assiciation, you need a minimum two things: an input and output (think: ``How does X relate to Y?", or ``If I have X, what will be my Y?"). However, more often that not, you may have several  things that can influence an output, or a relationship. Hence, we introduce the notation for the input variable(s), $X$: 
+
+\vspace{1mm}
+\begin{center}	
+	$X = (X_1, X_2, ... , X_P).  $  \\\
+ \end{center}
+\vspace{-5mm}
+
+It is worth taking the time to stop, and make a mental note of the various names that are synonomous to the term: \textit{variable}. Within the scope of statistical learning, the term \textit{variable} is interchangeable with \textit{predictors} (hence the P in $X_P$), \textit{independent variables}, or \textit{features}. While, the output variable is often referred to as the \textit{response}, or \textit{dependent variable}. 
+
+\color{astral}\subsection[Types of Estimation]{Types of Estimation}
+		
+\color{black} \paragraph{} Statistical learning can be split into two different kinds of estimation: \textit{prediction} and \textit{inference}. When the time comes, you may determine that one estimation better frames your question than the other. Conversely, you may determine that your question is best answered with the utilization of both types of estimation. Nevertheless, both forms of estimation offer unique insight, and require unique paramaters. We discuss each in depth. 
+
+\color{astral} \subsubsection*{Prediction}
+
+\color{black} \paragraph{} Discussion about prediction
+
+\color{astral}\subsubsection*{Inference}
+		
+\color{black} \paragraph{} Discussion about inference
+% ------------CHAPTER 2 ----------------------------------		
+%	\color{astral}\chapter{Linear Regression }
+	
+	
+	
+	
+	
+	
+	
+	
 	
 \end{document}
