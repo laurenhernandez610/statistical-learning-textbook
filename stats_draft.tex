@@ -107,24 +107,42 @@
 	 \section[The Basics of Statistical Learning ]{The Basics of Statistical Learning} % Example of a section 
 
 	
-\color{black} 	\paragraph{} Generally speaking, statistical learning is a construct that attempts to predict an outcome, or determine a relationship. Now, in order to make a prediction, or determine an assiciation, you need a minimum two things: an input and output (think: ``How does X relate to Y?", or ``If I have X, what will be my Y?"). However, more often that not, you may have several  things that can influence an output, or a relationship. Hence, we introduce the notation for the input variable(s), $X$: 
+\color{black} 	\paragraph{} Generally speaking, statistical learning is a construct that attempts to predict an outcome, or determine a relationship. The act of predicting an outcome falls under a type of learning called \textit{supervised learning}. Supervised learning requires that you have an \textit{output}, $Y$. Determining a relationship falls under a type of learning called \textit{unsupervised learning}, which does not require an output. Considering \textit{supervised learning}, the output variable $Y$, can be either \textit{quantitative}, or \textit{qualitative}. \textit{Quantitative} outputs are numeric and continuous, or close in nature. \textit{Qualitative} outputs are categorical, or discrete in nature. 
+
+We introduce the notation for input variable(s), $X$: 
 
 \vspace{1mm}
-\begin{center}	
-	$X = (X_1, X_2, ... , X_P).  $  \\\
- \end{center}
+\begin{equation}	
+	X = (X_1, X_2, ... , X_P).    
+ \end{equation}
 \vspace{-5mm}
 
 It is worth taking the time to stop, and make a mental note of the various names that are synonomous to the term: \textit{variable}. Within the scope of statistical learning, the term \textit{variable} is interchangeable with \textit{predictors} (hence the P in $X_P$), \textit{independent variables}, or \textit{features}. While, the output variable is often referred to as the \textit{response}, or \textit{dependent variable}. 
 
 \color{astral}\subsection[Types of Estimation]{Types of Estimation}
 		
-\color{black} \paragraph{} Statistical learning can be split into two different kinds of estimation: \textit{prediction} and \textit{inference}. When the time comes, you may determine that one estimation better frames your question than the other. Conversely, you may determine that your question is best answered with the utilization of both types of estimation. Nevertheless, both forms of estimation offer unique insight, and require unique paramaters. We discuss each in depth. 
+\color{black} \paragraph{} Supervised learning can be split into two different kinds of estimation: \textit{prediction} and \textit{inference}. When the time comes, you may determine that one estimation better frames your question than the other. Conversely, you may determine that your question is best answered with the utilization of both types of estimation. Nevertheless, both forms of estimation offer unique insight, and require unique paramaters. We discuss each in depth. 
 
 \color{astral} \subsubsection*{Prediction}
 
-\color{black} \paragraph{} Discussion about prediction
+\color{black} \paragraph{} The first type of estimation is referred to prediction, which is implemented when we have information about $X$, and we want to predict $Y$. Let's say that we have a quantative (numerical) response variable, $Y$, with predictors $X = (X_1, X_2, ... X_P)$. We can set up a very general equation that predicts $Y$ using
 
+\begin{equation}
+	\hat{Y} = \hat{f}(X) + \epsilon,
+\end{equation} 
+
+based on the assumption that there is in fact some relationship between $Y$, and 
+$X = (X_1, X_2, ... X_P)$, which is assumed to have the form:
+\begin{equation}
+	Y = f (X) + \epsilon.
+\end{equation} 
+ 
+ Here, $\hat{Y}$ is our resulting prediction for $Y$, $\hat{f}$ is our estimate for $f$, which represents the systematic information that $X$ carries about $Y$, and $\epsilon$ is the random error term. The goal in a prediction envorinment is to have values for $\hat{Y}$ that are accurate with respect to $Y$, or the actual outcome. In this context, we are not concerned with the question of \textit{``what is the true form of f?"}, but rather, how accurate are our precictions of $Y$. Lastly, $\epsilon$ refers to the unavoidable error term that will surely be present in any prediction. This random error is independent of $X$, has a mean of zero, and can account for the randomness in the real-world that is naturally occurring. Since $\epsilon$ has a mean of xero, $Y$ can be predicted by using 
+ 
+ \begin{equation}	
+ \hat{Y} = \hat{f}(X)
+ \end{equation} 
+ 
 \color{astral}\subsubsection*{Inference}
 		
 \color{black} \paragraph{} Discussion about inference
